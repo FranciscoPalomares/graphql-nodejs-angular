@@ -1,0 +1,22 @@
+<br>
+
+<div *ngFor="let tarea of tareas | async">
+
+  <p>
+    {{tarea._id}}&nbsp;-&nbsp;{{tarea.title}}&nbsp;-&nbsp;{{tarea.desc}}-&nbsp;{{tarea.createdAt | date:'medium'}}
+  </p>
+
+
+</div>
+
+<h2>Introduce una nueva tarea</h2>
+<form (ngSubmit)="nuevo()" *ngIf="tarea">
+  <p>Introduce un título</p>
+  <input type="text" name="title"[(ngModel)]="tarea.title">
+
+
+  <p>Introduce una descripción</p>
+  <input type="text" name="desc" [(ngModel)]="tarea.desc">
+  <br>
+  <input type="submit" value="Enviar">
+</form>
